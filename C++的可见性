@@ -1,0 +1,30 @@
+#include<iostream>
+
+class Entity
+{
+//私有
+private:
+	int x, y;
+  //子类可见
+protected:
+	void Print() {};
+  //全部可见
+public:
+	Entity()
+	{
+		x = 0;
+		Print();
+	}
+};
+class Player : public Entity
+{
+public:
+	Player() { Print(); }
+};
+int main()
+{
+	Entity e;
+	Player();
+	Print();
+	std::cin.get();
+}
