@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+
+class Entity
+{
+public:
+	 virtual std::string GetName() { return "Entity"; }
+};
+
+class Player : public Entity
+{
+private:
+	std::string m_Name;
+public:
+	Player(const std::string& name)
+		:m_Name(name) {}
+
+	std::string GetName() override { return m_Name; }//表明这是一个覆写函数
+};
+
+void Print_Name(Entity* entity)//参数的类型是Entity
+{
+	std::cout << entity->GetName() << std::endl;
+}
+
+int main()
+{
+	Entity* e = new Entity();
+	Print_Name(e);
+
+	Player* p = new Player("Killer");
+	//参数类型是Entity，调用函数寻找当法时优先从Entity。
+	Print_Name(p);//想打印出的应该是Player
+	
+
+	std::cin.get();
+}
