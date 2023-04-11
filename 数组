@@ -1,0 +1,34 @@
+#include<iostream>
+#include<array>
+
+class Entity
+{
+public:
+	static const int exampleSize = 5;
+	int example[exampleSize];
+	std::array<int, 5> another;
+
+	Entity()
+	{
+		for (int i = 0; i < another.size(); i++)
+		{
+			another[i] = 2;
+		}
+		for (int i = 0; i < exampleSize; i++)
+		{
+			example[i] = exampleSize;
+		}
+	}
+};
+
+
+
+int main()
+{
+	Entity e;
+	
+	//int Example[5];//栈上创建，函数体运行结束删除。
+	//int* another = new int[5];//堆上创建，delete[]消除
+	///*区别：生存期不同*/
+	std::cin.get();
+}
