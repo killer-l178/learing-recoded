@@ -1,0 +1,13 @@
+#include<iostream>
+//#include<string>
+
+int main()
+{
+	//std::string name = "killer" + "Lyy";//双引号里面的内容是const char
+	name += "Lyy";//“+=”在string中被重载了，实际上是将指针内容加入到数组中
+	std::string name = std::string("killer") + "Lyy";//显示调用一个string构造函数。
+	int len = name.size();
+	std::cout << name << " " << len << std::endl;
+
+	std::cin.get(); 
+}
