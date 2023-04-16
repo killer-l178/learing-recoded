@@ -1,0 +1,29 @@
+//const在*之前不能修改指针指向内存中的数据
+
+#include<iostream>
+#include<string>
+
+int main()
+{
+	const int max_age = 90;
+
+	const int* a = new int;
+    int const* a = new int;
+	*a = 2;//(error)不能修改指针指向内存中的数据
+	a = (int*) & max_age;//a可以指向不同的位置
+	std::cout << *a << std::endl;
+	std::cin.get();
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//const在*号之后可以修改指针指向数据的内容，但不能修改指针指向的位置
+
+int main()
+{
+	const int MAX_AGE = 90;
+
+	int* const a = new int;
+	*a = 2;//可以修改变量数据的内容
+	a = (int*)&MAX_AGE;//（error）const在*号之后，不能修改指针指向的位置
+	std::cout << *a << std::endl;
+	std::cin.get();
+}
