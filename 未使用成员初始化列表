@@ -1,0 +1,48 @@
+//未使用成员初始化列表
+//成员初始化列表
+#include<iostream>
+#include<string>
+
+class Example
+{
+public:
+	Example()
+	{
+		std::cout << "Creat example!" << std::endl;
+	}
+
+	Example(int x)
+	{
+		std::cout << "Creat example with " << x << std::endl;
+ 	}
+};
+
+class Entity
+{
+private:
+	std::string m_Name;
+	Example m_Example;//成员变量区域也会被运行
+public:
+	Entity()
+	{
+		m_Name = "Unknown";//不管这一行是否存在都会输出两行信息
+/*因为C++会自动执行默认构造函数，所以Example里的构造函数Example()会被默认执行一次
+若程序中在显示的写一个，那就存在两个完全一样的信息，然后程序在两者之间选择一个，丢弃一个。
+这就造成了资源的浪费。
+*/
+		m_Example = Example(8);
+	}
+	//成员初始化列表时，要与成员变量声明时的一致
+
+	Entity(const std::string& name)
+	{
+		m_Name = name;
+	}
+	const std::string& GetName() const { return m_Name; }
+};
+
+int main()
+{
+	Entity e0;//创建一个Entity对象就会默认构造一个Example？
+	std::cin.get();
+}
