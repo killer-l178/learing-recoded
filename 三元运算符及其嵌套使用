@@ -1,0 +1,27 @@
+//三元运算符
+#include<iostream>
+#include<string>
+
+static int s_Level = 1;
+static int s_Speed = 25;
+
+int main()
+{
+	std::string rank = s_Level > 10 ? "Master" : "Beginner";
+	std::cout << rank << std::endl;
+
+	std::string OtherRank;//这种模式会构造一个空字符对象，然后用一个新对象覆盖原来的字符串对象
+	if (s_Level > 10)
+		OtherRank = "=Master";
+	else
+		OtherRank = "Beginner";
+	std::cout << OtherRank << std::endl;
+}
+
+
+//三元运算符的嵌套
+int main()
+{
+	s_Speed = s_Level > 10 ? s_Level > 20 ? 5 : 10 : 15;
+	std::cout << s_Speed << std::endl;
+}
