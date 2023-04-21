@@ -1,0 +1,30 @@
+#include<iostream>
+#include<string>
+
+using String = std::string;
+
+class Entity
+{
+private:
+	String m_Name;
+public:
+	Entity() : m_Name("Unknown") {}
+	Entity(const String& name) : m_Name(name) {}
+
+	const String& GetName() const { return m_Name; }
+};
+
+//new可以去找到一块足够大的内存块，分配给类、基本类型、数组
+
+int main()
+{
+	int* b = new int;//new 返回的是指向分配内存的指针。
+	int* a = new int[50]//分配200bites的内存空间
+
+	Entity* e = new Entity;
+  
+	delete e;// delete == destructor
+	delete[]a//释放数组的内存空间。 
+
+	std::cin.get();
+}
