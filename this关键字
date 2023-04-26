@@ -1,0 +1,26 @@
+#include<iostream>
+
+class Entity
+{
+public:
+	int x, y;
+	//this的作用是去引用类中的实际类成员
+	Entity(int x, int y)
+	{
+		this->x = x;
+		std::cout << x << std::endl;
+		this->y = y;
+		std::cout << y << std::endl;
+		
+		//x = x;
+		//y = y;
+		/*只是将形参中的x自己本身赋值给了自己*/
+	}
+
+};
+
+int main()
+{
+	Entity(5, 10);
+	std::cin.get();
+}
