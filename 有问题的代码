@@ -1,0 +1,35 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<string>
+
+using namespace std;
+class Time
+{
+private:
+	int hour;
+	int minute;
+public:
+	int c = 0;
+	Time(int h, int m) : hour(h), minute(m) {};
+	void get_time();
+};
+
+void Time::get_time()
+{
+	cout << hour << ":" << minute << endl;
+}
+
+int main()
+{
+	void fun(Time* t);
+	Time t1(4, 25);
+	cout << t1.c << endl;
+	fun(&t1);
+	cout << t1.c << endl;
+	cin.get();
+}
+
+void fun(Time t)
+{
+	t.c = 1;
+}
